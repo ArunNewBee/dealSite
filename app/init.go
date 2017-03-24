@@ -1,6 +1,20 @@
 package app
 
-import "github.com/revel/revel"
+import (
+	"database/sql"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/revel/revel"
+)
+
+var DB *sql.DB
+
+const (
+	DB_HOST = ""
+	DB_NAME = ""
+	DB_USER = ""
+	DB_PASS = ""
+)
 
 func init() {
 	// Filters is the default set of global filters.
@@ -21,8 +35,19 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
-	// revel.OnAppStart(InitDB)
+	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
+}
+
+func InitDB() {
+	//connstring := fmt.Sprintf("user=%s password='%s' dbname=%s sslmode=disable", "techelse_oyedeal", " xAvp[2F4WQa0", "techelse_deal")
+	dsn := DB_USER + ":" + DB_PASS + "@" + DB_HOST + "/" + DB_NAME + "?charset=utf8"
+	var err error
+	DB, err = sql.Open("mysql", dsn)
+	if err != nil {
+		revel.INFO.Println("DB Error", err)
+	}
+	revel.INFO.Println("DB Connected")
 }
 
 // TODO turn this into revel.HeaderFilter

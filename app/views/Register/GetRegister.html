@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+<link href="../../../public/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../../public/css/font-awesome.min.css">
+
+ 
+</head>
+
+<body>
+{{template "header.html" .}}
+<div id="header"></div>
+<div class="container">
+<div class="subcontainer padtb">
+<div class="hdd">Sign Up</div>
+<form method="post" action="/register/DoRegister">
+<div class="contc">
+<p class="msg">First Name</p>
+<div class="item">
+<input name="txtfname" type="text" class="txtbx">
+</div>
+<p class="msg">Last Name</p>
+<div class="item">
+<input name="txtlname" type="text" class="txtbx">
+</div>
+<p class="msg">E-mail</p>
+<div class="item">
+<input name="txtmail" type="email" class="txtbx">
+</div>
+<p class="msg">Contact Number</p>
+<div class="item">
+<input name="txtnum" type="text" class="txtbx">
+</div>
+<p class="msg">Password</p>
+<div class="item">
+<input name="txtpass" type="password" class="txtbx">
+</div>
+<p class="msg">Confirm Password</p>
+<div class="item">
+<input name="txtcpass" type="password" class="txtbx">
+</div>
+<br />
+<div class="item2">
+<input name="btnok" type="submit" value="SUBMIT" class="btnokc">
+</div>
+</div>
+</form>
+
+
+</div>
+</div>
+{{template "footer.html" .}}
+</body>
+</html>
