@@ -11,35 +11,41 @@
 
 <body>
 {{template "header.html" .}}
+{{if .errors}}Please fix errors marked below!{{end}}
 <div id="header"></div>
 <div class="container">
 <div class="subcontainer padtb">
 <div class="hdd">Sign Up</div>
 <form method="post" action="/register/DoRegister">
 <div class="contc">
+    
+
+<p class="{{if .errors.fname}}error{{end}}">
 <p class="msg">First Name</p>
 <div class="item">
-<input name="txtfname" type="text" class="txtbx">
+<input name="fname" type="text" class="txtbx" value="{{.flash.username}}">
 </div>
+<span class="error">{{.errors.txtfname.Message}}</span>
+</p>
 <p class="msg">Last Name</p>
 <div class="item">
-<input name="txtlname" type="text" class="txtbx">
+<input name="lname" type="text" class="txtbx">
 </div>
 <p class="msg">E-mail</p>
 <div class="item">
-<input name="txtmail" type="email" class="txtbx">
+<input name="email" type="email" class="txtbx">
 </div>
 <p class="msg">Contact Number</p>
 <div class="item">
-<input name="txtnum" type="text" class="txtbx">
+<input name="cnum" type="text" class="txtbx">
 </div>
 <p class="msg">Password</p>
 <div class="item">
-<input name="txtpass" type="password" class="txtbx">
+<input name="pass" type="password" class="txtbx">
 </div>
 <p class="msg">Confirm Password</p>
 <div class="item">
-<input name="txtcpass" type="password" class="txtbx">
+<input name="cpass" type="password" class="txtbx">
 </div>
 <br />
 <div class="item2">

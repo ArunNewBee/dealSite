@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"fmt"
-
 	"github.com/revel/revel"
 )
 
@@ -15,7 +13,16 @@ func (c Register) GetRegister() revel.Result {
 }
 
 func (c Register) DoRegister() revel.Result {
-	fmt.Println("hello")
-	fmt.Println(c.Params.Values)
+	txtfname := c.Params.Get("txtfname")
+	c.Validation.Required(txtfname).Message("Please enter a username")
+
+	if c.Validation.HasErrors() {
+		// Store the validation errors in the flash context and redirect.
+		c.Validation.Keep()
+		c.FlashParams()
+		return c.Redirect(Register.GetRegister)
+	}
+	//models.DoRegistration()
+	//fmt.Println(c.Params.Values)
 	return nil
 }
