@@ -526,6 +526,7 @@ body
 	resize:none;
 	line-height:30px;
 	font-family:Montserrat;
+	color:#000;
 }
 .txtbx:focus
 {
