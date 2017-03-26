@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+<link href="../../../public/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../../public/css/font-awesome.min.css">
+
+ 
+</head>
+
+<body>
+{{template "header.html" .}}
+<div class="container">
+<div class="subcontainer padtb">
+{{if .errors}}Please fix errors marked below!{{end}}
+
+<div class="hdd">Login</div>
+<form method="post" action="/Login/DoLogin">
+<div class="contc">
+    
+
+<p class="{{if .errors.fname}}error{{end}}">
+<p class="msg">First Name</p>
+<div class="item">
+<input name="email" type="text" class="txtbx" value="{{.flash.username}}">
+</div>
+<span class="error">{{.errors.email.Message}}</span>
+</p>
+<p class="msg">Password</p>
+<div class="item">
+<input name="cpass" type="password" class="txtbx">
+</div>
+<br />
+<div class="item2">
+<input name="btnok" type="submit" value="SUBMIT" class="btnokc">
+</div>
+</div>
+</form>
+
+</div>
+</div>
+{{template "footer.html" .}}
+</body>
+</html>
